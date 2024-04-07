@@ -1,16 +1,43 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/home";
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
+//splashScreen
+import SplashScreenComponent from "./components/splashScreenComponent/splashScreenComponent";
 
-function App(){
-  return(
+//pages
+import LoginPage from "./pages/loginPage/loginPage";
+import HomePage from "./pages/homePage/homePage";
+import RegistroPage from "./pages/registroPage/registroPage";
+
+function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            loading ? <SplashScreenComponent /> : <Navigate to="/login" />
+          }
+        />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/cadastro" element={<RegistroPage />} />
       </Routes>
     </Router>
   );
 }
 
-export default App
+export default App;

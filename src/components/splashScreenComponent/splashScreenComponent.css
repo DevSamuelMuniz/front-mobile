@@ -1,0 +1,17 @@
+.splash-screen {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fba946;
+}
+
+.logoSplashScreen {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.logoSplashScreen.show {
+  opacity: 1;
+}
