@@ -1,0 +1,18 @@
+Olá, bem-vindo ao nosso código!
+parece que você acabou de clonar o código não é mesmo.
+
+Vamos aos primeiros passos:
+
+    Instalações necessárias: 
+        1 - Primeiro, antes de tudo, tenha certeza que o NODE.JS está intalado no seu computador, se não estiver, baixe pelo link: ( https://nodejs.org/en/download/current )
+        2 - Agora abra o seu terminal de comandos acessando pela navbar ou pelo comando ( Ctrl + ' ). [ps: o ' fica abaixo do esc]
+        3 - Execute o seguinte comando para instalar todas as dependências necessárias: ( npm install )
+
+    Execução do projeto:
+
+        1 - Para iniciar o projeto no seu navegador basta apenas executar o seguinte comando no terminal de comandos: ( npm start )
+
+Se você seguir todas essas etapas não terá problemas, caso tenha algum problema basta me chamar no whatsapp
+
+
+- Samuel Muniz
