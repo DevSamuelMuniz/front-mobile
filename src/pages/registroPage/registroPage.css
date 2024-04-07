@@ -71,3 +71,24 @@
   background-color: #fba946;
   color: white;
 }
+
+.ctn-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btnVoltar {
+  background-color: white;
+  border: 1px solid white;
+  font-size: 1rem;
+  padding: 0.4rem 1.4rem;
+  color: #fba946;
+  margin-top: 1.4rem;
+  border-radius: 0.2rem;
+  transition: 0.2s ease-in-out;
+  text-decoration: none;
+
+  cursor: pointer;
+}

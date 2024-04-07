@@ -43,9 +43,9 @@ function loginPage() {
         </form>
       </div>
 
-      <div>
+      <div className="ctn-cadastro">
         <p className="cadastroLogin">Não tem uma conta?</p>
-        <p className="cadastroLoginLink">Cadastre-se</p>
+        <a href="/cadastro" className="cadastroLoginLink">Cadastre-se</a>
       </div>
     </main>
   );

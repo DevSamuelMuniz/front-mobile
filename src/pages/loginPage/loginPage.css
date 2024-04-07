@@ -80,6 +80,18 @@
 
 .cadastroLoginLink {
   font-size: 1.2rem;
-  text-align: center;
   color: #5fa604;
+  text-decoration: none;
+  
+}
+
+.cadastroLoginLink:hover {
+  color: #84b643;
+}
+
+.ctn-cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

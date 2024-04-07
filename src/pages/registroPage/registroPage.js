@@ -14,9 +14,9 @@ function registroPage() {
       </div>
 
       <h1 className="tituloRegistro">Cadastro</h1>
-      <div>
+      <div className="ctn-form">
         <form className="formRegistro" action="">
-        <label className="labelRegistro" for="">
+          <label className="labelRegistro" for="">
             Nome Completo
           </label>
           <input
@@ -49,8 +49,12 @@ function registroPage() {
             placeholder="Sua senha"
           ></input>
 
-          <button className="btnRegistro">Entrar</button>
+          <button className="btnRegistro">Cadastrar</button>
         </form>
+
+        <a href="/login" className="btnVoltar">
+          Votar
+        </a>
       </div>
     </main>
   );
