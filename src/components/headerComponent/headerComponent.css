@@ -9,19 +9,33 @@
     background-color: #FBA946;
 }
 
+.img-header{
+  width: 70px;
+  margin-left: 1rem;
+}
+
+.titulo-header{
+  color: white;
+}
+
 .menu-burger {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 30px;
-    height: 20px;
+    align-items: center;
+    width: 70px;
+    height: 30px;
     cursor: pointer;
   }
   
   .bar {
-    width: 100%;
+    width: 40%;
     height: 4px;
-    background-color: #333;
+    background-color: white;
   }
 
-  
+  .btn-header{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }

@@ -6,6 +6,10 @@ import "./loginPage.css";
 //logo com nome
 import LogoNome from "../../assets/img/logo&nome.png";
 
+function entrar(){
+  window.location.href = '/home'
+}
+
 function loginPage() {
   return (
     <main className="content-loginPage">
@@ -39,7 +43,7 @@ function loginPage() {
             placeholder="Sua senha"
           ></input>
 
-          <button className="btnLogin">Entrar</button>
+          <button onClick={entrar} className="btnLogin">Entrar</button>
         </form>
       </div>
 

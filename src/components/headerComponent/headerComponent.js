@@ -7,13 +7,13 @@ import Logo from "../../assets/img/logo.png";
 function headerComponent() {
   return (
     <main className="container-header">
-      <img src={Logo} alt="Logo" />
-      <h1>NutriLife</h1>
-      <div class="menu-burger">
+      <img className="img-header" src={Logo} alt="Logo" />
+      <h1 className="titulo-header">NutriLife</h1>
+      <button className="btn-header"><div class="menu-burger">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
-      </div>
+      </div></button>
     </main>
   );
 }
