@@ -1,9 +1,11 @@
 import "./homePage.css";
+//components
+import HeaderComponent from "../../components/headerComponent/headerComponent";
 
 function Home() {
   return (
     <main>
-      <h1>home</h1>
+      <HeaderComponent />
     </main>
   );
 }
