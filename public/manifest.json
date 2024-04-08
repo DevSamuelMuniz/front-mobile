@@ -22,5 +22,5 @@
   "name": "NutriLife",
   "short_name": "nutrilife",
   "scope": "https://front-mobile.vercel.app/",
-  "start_url": "https://front-mobile.vercel.app/home"
+  "start_url": "https://front-mobile.vercel.app"
 }
