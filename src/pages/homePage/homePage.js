@@ -16,6 +16,7 @@ function Home() {
         <img className="banner1" src={Banner} alt="imagem banner" />
       </div>
       <RecipeCarrosselComponent />
+      <RecipeCarrosselComponent />
     </main>
   );
 }

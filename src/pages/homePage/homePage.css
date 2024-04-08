@@ -2,12 +2,10 @@
   width: 100%;
   height: auto;
   border-radius: 0.6rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
-.banner-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.content-header{
+  display:flex ;
+  flex-direction: column;
+  gap: 2rem;
 }

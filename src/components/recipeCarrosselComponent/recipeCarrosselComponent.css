@@ -2,3 +2,7 @@
   width: 100px;
   height: auto;
 }
+
+.carrossel-container{
+  scale: 0.9;
+}
