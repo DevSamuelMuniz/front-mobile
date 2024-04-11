@@ -39,3 +39,56 @@
     border: none;
     cursor: pointer;
   }
+
+.menu {
+  /* Estilo */
+  width: 60%;
+  height: 85vh;
+  background-color: #f28705f2;
+  display: flex;
+  justify-content: center;
+  
+  /* Posição */
+  position: absolute;
+  top: 8.32rem;
+  right: 0;
+  z-index: 1;
+
+}
+
+.itens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+  margin-bottom: 6rem;
+  width: 85%;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inherit;
+}
+
+a {
+  display: flex;
+  align-items: center;
+  background-color: #C96E00;
+  color: white;
+  gap: 0.5rem;
+  padding: .5rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+a img {
+  width: 20px;
+}
+
+a p {
+  font-size: 12px;
+}
