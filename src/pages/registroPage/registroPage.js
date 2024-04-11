@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 //css
 import "./registroPage.css";
@@ -6,7 +7,33 @@ import "./registroPage.css";
 //logo com nome
 import LogoNome from "../../assets/img/logoDeitada.png";
 
-function registroPage() {
+function RegistroPage() {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+
+  const handleRegistro = async (e) => {
+    e.preventDefault();
+  
+    try {
+      const response = await axios.post("http://localhost:5000/api/register", {
+        name: nome,
+        email: email,
+        password: senha,
+      });
+  
+      console.log(response.data); // Aqui você pode tratar a resposta, por exemplo, exibir uma mensagem de sucesso
+      registrado(); // Redirecionar apenas se o registro for bem-sucedido
+    } catch (error) {
+      console.error("Erro ao registrar usuário:", error);
+    }
+  };
+  
+
+  function registrado(){
+    window.location.href = '/login'
+  }
+
   return (
     <main className="content-RegistroPage">
       <div>
@@ -15,8 +42,8 @@ function registroPage() {
 
       <h1 className="tituloRegistro">Crie a sua conta</h1>
       <div className="ctn-form">
-        <form className="formRegistro" action="">
-          <label className="labelRegistro" for="">
+        <form className="formRegistro" onSubmit={handleRegistro}>
+          <label className="labelRegistro" htmlFor="nome">
             Nome Completo
           </label>
           <input
@@ -24,10 +51,13 @@ function registroPage() {
             type="text"
             name="nome"
             id="nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
             placeholder="Digite o seu nome completo aqui"
-          ></input>
+            required
+          />
 
-          <label className="labelRegistro" for="">
+          <label className="labelRegistro" htmlFor="email">
             Email
           </label>
           <input
@@ -35,10 +65,13 @@ function registroPage() {
             type="email"
             name="email"
             id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Digite o seu email aqui"
-          ></input>
+            required
+          />
 
-          <label className="labelRegistro" for="">
+          <label className="labelRegistro" htmlFor="senha">
             Senha
           </label>
           <input
@@ -46,10 +79,15 @@ function registroPage() {
             type="password"
             name="senha"
             id="senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
             placeholder="Digite a sua senha aqui"
-          ></input>
+            required
+          />
 
-          <button className="btnRegistro">Cadastrar</button>
+          <button className="btnRegistro" type="submit">
+            Cadastrar
+          </button>
         </form>
 
         <div className="ctn-cadastro">
@@ -63,4 +101,4 @@ function registroPage() {
   );
 }
 
-export default registroPage;
+export default RegistroPage;

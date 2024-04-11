@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 //css
 import "./loginPage.css";
@@ -6,22 +7,42 @@ import "./loginPage.css";
 //logo com nome
 import LogoNome from "../../assets/img/logoDeitada.png";
 
-function entrar(){
-  window.location.href = '/home'
-}
+function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
 
-function loginPage() {
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:5000/api/login", {
+        email: email,
+        password: senha,
+      });
+
+      console.log(response.data); // Aqui você pode tratar a resposta, por exemplo, redirecionar para "/home" se o login for bem-sucedido
+      if (response.data.success) {
+        window.location.href = '/home'; // Redireciona para "/home" se o login for bem-sucedido
+      } else {
+        console.error("Credenciais inválidas");
+        // Aqui você pode exibir uma mensagem de erro para o usuário
+      }
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      // Aqui você pode exibir uma mensagem de erro para o usuário
+    }
+  };
+
   return (
     <main className="content-loginPage">
       <div>
         <img className="logoLogin" src={LogoNome} alt="Logo" />
       </div>
 
-        <h1 className="tituloLogin">Entre na sua conta</h1>
+      <h1 className="tituloLogin">Entre na sua conta</h1>
       <div>
-
-        <form className="formLogin" action="">
-          <label className="labelLogin" for="">
+        <form className="formLogin" onSubmit={handleLogin}>
+          <label className="labelLogin" htmlFor="email">
             Email
           </label>
           <input
@@ -29,10 +50,13 @@ function loginPage() {
             type="email"
             name="email"
             id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Digite o seu email aqui"
-          ></input>
+            required
+          />
 
-          <label className="labelLogin" for="">
+          <label className="labelLogin" htmlFor="senha">
             Senha
           </label>
           <input
@@ -40,10 +64,13 @@ function loginPage() {
             type="password"
             name="senha"
             id="senha"
-            placeholder="Digite o sua senha aqui"
-          ></input>
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            placeholder="Digite a sua senha aqui"
+            required
+          />
 
-          <button onClick={entrar} className="btnLogin">Entrar</button>
+          <button className="btnLogin" type="submit">Entrar</button>
         </form>
       </div>
 
@@ -55,4 +82,4 @@ function loginPage() {
   );
 }
 
-export default loginPage;
+export default LoginPage;
