@@ -16,7 +16,7 @@ function sideBarComponent({ isOpen, onClose }){
       };
       
     return(
-        <Menu isOpen={isOpen} onClose={onClose} className="popUp">
+        <Menu isOpen={isOpen} onClose={onClose} className="popUp" right>
         <a className="menu-item" href="/" onClick={handleItemClick}><img src={ConfigIcon}></img><p>Configurações</p></a>
         <a className="menu-item" href="#" onClick={handleItemClick}><img src={ModoIcon}></img><p>Modo Escuro</p></a>
         <a className="menu-item" href="#" onClick={handleItemClick}><img src={PoliticasIcon}></img><p>Políticas de Privacidade</p></a>

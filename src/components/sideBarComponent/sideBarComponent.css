@@ -3,16 +3,19 @@
     display: flex; 
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 10px;
+    height: 3px;
 }
 
 .menu-item {
     background-color: #C96E00;
     text-decoration: none;
     color: white;
-    display: flex;
     width: 60vw;
     margin-top: 6rem;
-}
-.bm-item.menu-item {
+    border-radius: 10px;
     
 }
