@@ -1,0 +1,18 @@
+.popUp {
+    background-color: #F28705;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-item {
+    background-color: #C96E00;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    width: 60vw;
+    margin-top: 6rem;
+}
+.bm-item.menu-item {
+    
+}

@@ -5,6 +5,7 @@ import "./headerComponent.css"
 import Logo from "../../assets/img/logo.png";
 
 function headerComponent() {
+  //{openPopUp} como parâmetro
   return (
     <main className="container-header">
       <img className="img-header" src={Logo} alt="Logo" />
