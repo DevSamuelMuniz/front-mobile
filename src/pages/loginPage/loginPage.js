@@ -4,7 +4,7 @@ import React from "react";
 import "./loginPage.css";
 
 //logo com nome
-import LogoNome from "../../assets/img/logo&nome.png";
+import LogoNome from "../../assets/img/logoDeitada.png";
 
 function entrar(){
   window.location.href = '/home'
@@ -14,10 +14,10 @@ function loginPage() {
   return (
     <main className="content-loginPage">
       <div>
-        <img className="logoLogin" src={LogoNome} alt="" />
+        <img className="logoLogin" src={LogoNome} alt="Logo" />
       </div>
 
-        <h1 className="tituloLogin">Login</h1>
+        <h1 className="tituloLogin">Entre na sua conta</h1>
       <div>
 
         <form className="formLogin" action="">
@@ -29,7 +29,7 @@ function loginPage() {
             type="email"
             name="email"
             id="email"
-            placeholder="Seu email"
+            placeholder="Digite o seu email aqui"
           ></input>
 
           <label className="labelLogin" for="">
@@ -40,7 +40,7 @@ function loginPage() {
             type="password"
             name="senha"
             id="senha"
-            placeholder="Sua senha"
+            placeholder="Digite o sua senha aqui"
           ></input>
 
           <button onClick={entrar} className="btnLogin">Entrar</button>
@@ -49,7 +49,7 @@ function loginPage() {
 
       <div className="ctn-cadastro">
         <p className="cadastroLogin">Não tem uma conta?</p>
-        <a href="/cadastro" className="cadastroLoginLink">Cadastre-se</a>
+        <a href="/cadastro" className="cadastroLoginLink">Criar uma conta agora</a>
       </div>
     </main>
   );

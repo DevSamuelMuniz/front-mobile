@@ -4,7 +4,7 @@ import React from "react";
 import "./registroPage.css";
 
 //logo com nome
-import LogoNome from "../../assets/img/logo&nome.png";
+import LogoNome from "../../assets/img/logoDeitada.png";
 
 function registroPage() {
   return (
@@ -13,7 +13,7 @@ function registroPage() {
         <img className="logoRegistro" src={LogoNome} alt="" />
       </div>
 
-      <h1 className="tituloRegistro">Cadastro</h1>
+      <h1 className="tituloRegistro">Crie a sua conta</h1>
       <div className="ctn-form">
         <form className="formRegistro" action="">
           <label className="labelRegistro" for="">
@@ -24,7 +24,7 @@ function registroPage() {
             type="text"
             name="nome"
             id="nome"
-            placeholder="Seu nome completo"
+            placeholder="Digite o seu nome completo aqui"
           ></input>
 
           <label className="labelRegistro" for="">
@@ -35,7 +35,7 @@ function registroPage() {
             type="email"
             name="email"
             id="email"
-            placeholder="Seu email"
+            placeholder="Digite o seu email aqui"
           ></input>
 
           <label className="labelRegistro" for="">
@@ -46,15 +46,18 @@ function registroPage() {
             type="password"
             name="senha"
             id="senha"
-            placeholder="Sua senha"
+            placeholder="Digite a sua senha aqui"
           ></input>
 
           <button className="btnRegistro">Cadastrar</button>
         </form>
 
-        <a href="/login" className="btnVoltar">
-          Votar
-        </a>
+        <div className="ctn-cadastro">
+          <p className="cadastroLogin">Já tem uma conta?</p>
+          <a href="/cadastro" className="cadastroLoginLink">
+            Entre com uma conta agora!
+          </a>
+        </div>
       </div>
     </main>
   );

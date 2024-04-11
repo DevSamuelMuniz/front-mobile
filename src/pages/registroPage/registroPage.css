@@ -1,5 +1,5 @@
 .content-RegistroPage {
-  background-color: #fba946;
+  background-color: #F28705;
 
   display: flex;
   justify-content: center;
@@ -13,17 +13,14 @@
 
 .logoRegistro {
   position: absolute;
-  top: 4rem;
+  top: 6rem;
   transform: translate(-50%, 0);
 }
 
 .tituloRegistro {
   text-align: center;
   color: white;
-  font-size: 3rem;
-  padding-top: 6rem;
-
-  border-bottom: 1px solid;
+  font-size: 2rem;
 }
 
 .formRegistro {
@@ -50,26 +47,27 @@
   text-align: start;
   color: white;
 
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   padding: 0.4rem 0;
 }
 
 .btnRegistro {
-  background-color: white;
-  border: 1px solid white;
-  font-size: 1.4rem;
+  background-color: #5FA604;
+  border: 1px solid #5FA604;
+  font-size: 1.2rem;
   padding: 0.4rem 1.6rem;
-  color: #fba946;
+  color: white;
   margin-top: 1.4rem;
   border-radius: 0.2rem;
   transition: 0.2s ease-in-out;
+  width: 100%;
 
   cursor: pointer;
 }
 
 .btnRegistro:hover {
-  background-color: #fba946;
-  color: white;
+  background-color: white;
+  color: #5FA604;
 }
 
 .ctn-form{
@@ -91,4 +89,14 @@
   text-decoration: none;
 
   cursor: pointer;
+}
+.cadastroLoginLink {
+  font-size: 1.2rem;
+  color: #235802;
+  text-decoration: none;
+  
+}
+
+.cadastroLoginLink:hover {
+  color: #235802;
 }
