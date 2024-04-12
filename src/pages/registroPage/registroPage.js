@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-//css
+//css                
 import "./registroPage.css";
 
 //logo com nome

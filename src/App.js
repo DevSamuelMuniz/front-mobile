@@ -13,6 +13,7 @@ import SplashScreenComponent from "./components/splashScreenComponent/splashScre
 import LoginPage from "./pages/loginPage/loginPage";
 import HomePage from "./pages/homePage/homePage";
 import RegistroPage from "./pages/registroPage/registroPage";
+import ProgressPage from "./pages/progressPage/progressPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -35,6 +36,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/cadastro" element={<RegistroPage />} />
+        <Route path="/progresso" element={<ProgressPage />} />
       </Routes>
     </Router>
   );
