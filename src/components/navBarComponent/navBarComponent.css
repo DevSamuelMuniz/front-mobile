@@ -9,3 +9,10 @@
     align-items: center;
 }
 
+.a-navBar {
+    width: 20px;
+}
+
+.sombreado {
+    background-color: aqua;
+}
