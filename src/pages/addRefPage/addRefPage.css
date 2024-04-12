@@ -1,9 +1,34 @@
 .form-add {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    background-color: aqua;
     gap: 1rem;
     color: #F28705;
+    align-items: center;
+    background-color: #F3F4F5;
+}
+
+.pergunta {
+    width: 90%;
+}
+
+.input-nome {
+    width: 86%;
+    border: none;
+    border-radius: 8px;
+    padding: .6rem;
+    background-color: #fff;
+}
+
+.input-descricao {
+    width: 86%;
+    height: 20vh;
+    border: none;
+    border-radius: 8px;
+    padding: .6rem;
+    background-color: #fff;
 }
 
 .btn-add {
@@ -13,8 +38,10 @@
     display: flex;
     gap: 1rem;
     justify-content: center;
+    align-items: center;
     padding: .6rem;
     border-radius: 8px;
+    width: 90%;
 }
 
 .btn-salvar {
@@ -23,6 +50,9 @@
     border: none;
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: .6rem;
     border-radius: 8px;
+    width: 90%;
+    margin-top: 16rem;
 }

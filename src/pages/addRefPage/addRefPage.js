@@ -2,6 +2,8 @@ import react from "react";
 
 //css
 import "./addRefPage.css"
+import HeaderAddRefComponent from "../../components/headerAddRefComponent/headerAddRefComponent";
+
 
 //imagens
 import Camera from "../../assets/img/camera.png"
@@ -9,6 +11,7 @@ import Camera from "../../assets/img/camera.png"
 function AddRefPage (){
     return (
         <main className="form-add">
+           <HeaderAddRefComponent />
            <label className="pergunta">Qual a refeição?</label>
            <input
            className="input-nome"
