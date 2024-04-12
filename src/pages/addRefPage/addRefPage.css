@@ -42,6 +42,7 @@
     padding: .6rem;
     border-radius: 8px;
     width: 90%;
+    cursor: pointer;
 }
 
 .btn-salvar {
@@ -54,5 +55,14 @@
     padding: .6rem;
     border-radius: 8px;
     width: 90%;
-    margin-top: 16rem;
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+
+    cursor: pointer;
+}
+
+#videoElement {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg); /* Para compatibilidade com navegadores mais antigos */
+    -moz-transform: rotateY(180deg); /* Para compatibilidade com navegadores mais antigos */
 }

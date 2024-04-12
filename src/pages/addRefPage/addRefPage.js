@@ -1,28 +1,70 @@
-import react from "react";
-
-//css
-import "./addRefPage.css"
+import React, { useState, useRef } from "react";
+import "./addRefPage.css";
 import HeaderAddRefComponent from "../../components/headerAddRefComponent/headerAddRefComponent";
+import Camera from "../../assets/img/camera.png";
 
+function AddRefPage() {
+ const [capturedImage, setCapturedImage] = useState(null);
+ const videoRef = useRef(null);
+ const canvasRef = useRef(null);
 
-//imagens
-import Camera from "../../assets/img/camera.png"
+ const captureImage = () => {
+    const canvas = canvasRef.current;
+    const context = canvas.getContext('2d');
+    context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+    const imageDataUrl = canvas.toDataURL('image/png');
+    setCapturedImage(imageDataUrl);
+ };
 
-function AddRefPage (){
-    return (
-        <main className="form-add">
-           <HeaderAddRefComponent />
-           <label className="pergunta">Qual a refeição?</label>
-           <input
-           className="input-nome"
-           placeholder="Digite um nome para a sua refeição"
-           />
-           <label className="pergunta">Sobre a refeição:</label>     
-           <textarea className="input-descricao" placeholder="Descreva a sua refeição"></textarea>   
-           <button className="btn-add"><img src={Camera}></img><a>Adicionar foto da Refeição</a></button>
-           <button className="btn-salvar">Salvar</button>
-        </main>
-    );
-};
+ const saveImage = () => {
+    const link = document.createElement('a');
+    link.href = capturedImage;
+    link.download = 'captured_image.png';
+    link.click();
+ };
+
+ const startCamera = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+      }
+    } catch (error) {
+      console.error("Error accessing camera:", error);
+    }
+ };
+
+ return (
+    <main className="form-add">
+      <HeaderAddRefComponent />
+      <label className="pergunta">Qual a refeição?</label>
+      <input
+        className="input-nome"
+        placeholder="Digite um nome para a sua refeição"
+      />
+      <label className="pergunta">Sobre a refeição:</label>
+      <textarea
+        className="input-descricao"
+        placeholder="Descreva a sua refeição"
+      ></textarea>
+      <button className="btn-add" onClick={startCamera}>
+        <img src={Camera} alt="Camera"></img>
+        <span>Adicionar foto da Refeição</span>
+      </button>
+      <video ref={videoRef} autoPlay></video>
+      <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
+      {capturedImage && <img src={capturedImage} alt="Captured" />}
+      <button className="btn-salvar" onClick={captureImage}>
+        Capturar Foto
+      </button>
+      <button className="btn-salvar" onClick={saveImage}>
+        Salvar Foto
+      </button>
+      <button className="btn-salvar">
+        Cancelar
+      </button>
+    </main>
+ );
+}
 
 export default AddRefPage;
