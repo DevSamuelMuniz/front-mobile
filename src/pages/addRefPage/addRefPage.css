@@ -1,0 +1,28 @@
+.form-add {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    gap: 1rem;
+    color: #F28705;
+}
+
+.btn-add {
+    background-color: #F28705;
+    color: white;
+    border: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: .6rem;
+    border-radius: 8px;
+}
+
+.btn-salvar {
+    background-color: #5FA604;
+    color: white;
+    border: none;
+    display: flex;
+    justify-content: center;
+    padding: .6rem;
+    border-radius: 8px;
+}
