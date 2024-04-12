@@ -5,6 +5,7 @@ import Camera from "../../assets/img/camera.png";
 
 function AddRefPage() {
  const [capturedImage, setCapturedImage] = useState(null);
+ const [showCaptureButtons, setShowCaptureButtons] = useState(false); // Estado para controlar a visibilidade dos botões
  const videoRef = useRef(null);
  const canvasRef = useRef(null);
 
@@ -28,6 +29,7 @@ function AddRefPage() {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
+        setShowCaptureButtons(true); // Habilitar os botões de captura após iniciar a câmera
       }
     } catch (error) {
       console.error("Error accessing camera:", error);
@@ -54,13 +56,18 @@ function AddRefPage() {
       <video ref={videoRef} autoPlay></video>
       <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
       {capturedImage && <img src={capturedImage} alt="Captured" />}
-      <button className="btn-salvar" onClick={captureImage}>
-        Capturar Foto
-      </button>
-      <button className="btn-salvar" onClick={saveImage}>
-        Salvar Foto
-      </button>
-      <button className="btn-salvar">
+      {/* Renderizar os botões somente se showCaptureButtons for true */}
+      {showCaptureButtons && (
+        <div>
+          <button className="btn-capturar" onClick={captureImage}>
+            Capturar Foto
+          </button>
+          <button className="btn-salvar" onClick={saveImage}>
+            Salvar Foto
+          </button>
+        </div>
+      )}
+      <button className="btn-cancelar">
         Cancelar
       </button>
     </main>
