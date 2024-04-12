@@ -73,7 +73,7 @@
   display: inherit;
 }
 
-a {
+.item-slide {
   display: flex;
   align-items: center;
   background-color: #C96E00;
@@ -84,10 +84,10 @@ a {
   width: 100%;
 }
 
-a img {
+.item-slide img {
   width: 20px;
 }
 
-a p {
+.item-slide p {
   font-size: 12px;
 }

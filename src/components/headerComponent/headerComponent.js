@@ -37,9 +37,9 @@ function HeaderComponent() {
 
       <div className={menu_class}>
         <div className="itens">
-           <a><img src={ConfigIcon}></img> <p>Configurações</p></a>
-           <a><img src={ModoIcon}></img> <p>Modo Escuro</p></a>
-           <a><img src={PoliticasIcon}></img> <p>Políticas de Privacidade</p></a>
+           <a className="item-slide" href="/"><img src={ConfigIcon} alt="botão de configurações"></img> <p>Configurações</p></a>
+           <a href="/"><img src={ModoIcon} alt="modo noite"></img> <p>Modo Escuro</p></a>
+           <a href="/"><img src={PoliticasIcon} alt="nossas políticas"></img> <p>Políticas de Privacidade</p></a>
         </div>
       </div>
     </main>

@@ -92,7 +92,7 @@ function RegistroPage() {
 
         <div className="ctn-cadastro">
           <p className="cadastroLogin">Já tem uma conta?</p>
-          <a href="/cadastro" className="cadastroLoginLink">
+          <a href="/login" className="cadastroLoginLink">
             Entre com uma conta agora!
           </a>
         </div>
