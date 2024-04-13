@@ -10,4 +10,27 @@
   gap: 2rem;
 }
 
-/* modal */
+.foto-receita{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.foto-receita img{
+  width: 30%;
+  height: auto;
+  border-radius: 0.6rem;
+}
+
+.recipe-info{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.recipe-info img{
+  width: 40%;
+  height: auto;
+  border-radius: 0.6rem;
+}

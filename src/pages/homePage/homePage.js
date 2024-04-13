@@ -1,6 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./homePage.css";
+//component
 import HeaderComponent from "../../components/headerComponent/headerComponent";
+
+//carrossel
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+
+//img
 import Banner from "../../assets/img/banner.png";
 
 function Home() {
@@ -34,7 +43,6 @@ function Home() {
   };
 
   //modal
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   return (
     <main className="content-header">
@@ -55,9 +63,10 @@ function Home() {
               onClick={() => handleRecipeClick(recipe.recipe)}
             />
           ))}
+        </div>
           {/* Modal de detalhes da receita */}
           {selectedRecipe && (
-            <div>
+            <div className="recipe-info">
               <h2>{selectedRecipe.label}</h2>
               <img src={selectedRecipe.image} alt={selectedRecipe.label} />
               <ul>
@@ -69,7 +78,6 @@ function Home() {
               <button onClick={handleCloseModal}>Fechar</button>
             </div>
           )}
-        </div>
       </div>
     </main>
   );
