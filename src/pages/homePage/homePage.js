@@ -47,9 +47,7 @@ function Home() {
   return (
     <main className="content-header">
       <HeaderComponent />
-      <div className="banner-content">
-        <img className="banner1" src={Banner} alt="imagem banner" />
-      </div>
+      
 
       <div className="receitas">
         <h1>Receitas</h1>
@@ -78,6 +76,9 @@ function Home() {
               <button onClick={handleCloseModal}>Fechar</button>
             </div>
           )}
+      </div>
+      <div className="banner-content">
+        <img className="banner1" src={Banner} alt="imagem banner" />
       </div>
     </main>
   );

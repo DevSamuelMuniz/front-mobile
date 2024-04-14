@@ -23,8 +23,8 @@
 
 .sombreado {
     position: absolute;
-    width: 9rem;
-    height: 9rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 100%;
     background-color: #f2740580;
     z-index: -1;

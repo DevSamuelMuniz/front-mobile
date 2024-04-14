@@ -1,0 +1,99 @@
+.content-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.titulo-progress {
+  margin: 3rem 0 2rem 0;
+}
+
+.form-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.label-progress {
+  width: 100%;
+  font-size: 1.1rem;
+  color: #f28705;
+}
+
+.input-progress {
+  width: 100%;
+  height: 25px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.incluir-progress {
+  background-color: #f28705;
+  border: 1px solid #df7f09;
+  color: white;
+  padding: 0.3rem 0.5rem;
+  font-size: 1.2rem;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.incluir-progress:active {
+  scale: 0.9;
+}
+
+.incluir-progress:hover {
+  background-color: white;
+  color: #f28705;
+}
+
+.itens-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 7rem;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.adicionar-progress {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn-progress {
+  background-color: #f28705;
+  border: 1px solid #df7f09;
+  color: white;
+  padding: 0.05rem 0.5rem;
+  font-size: 2rem;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  width: 2.3rem;
+}
+
+.btn-progress:active {
+  scale: 0.9;
+}
+
+.btn-progress:hover {
+  background-color: white;
+  color: #f28705;
+}
+
+.grafico {
+  scale: 0.7;
+}
+
+.adic-dim {
+  display: flex;
+  gap: 1rem;
+}
+
+.meta-titulo {
+  text-align: center;
+  margin-top: 2rem;
+}
