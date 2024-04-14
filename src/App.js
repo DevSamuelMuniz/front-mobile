@@ -15,6 +15,7 @@ import HomePage from "./pages/homePage/homePage";
 import RegistroPage from "./pages/registroPage/registroPage";
 import ProgressPage from "./pages/progressPage/progressPage";
 import AddRefPage from "./pages/addRefPage/addRefPage";
+import RefeicoesPage from "./pages/refeicoesPage/refeicoesPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -39,6 +40,7 @@ function App() {
         <Route path="/cadastro" element={<RegistroPage />} />
         <Route path="/progresso" element={<ProgressPage />} />
         <Route path="/adicionar" element={<AddRefPage />} />
+        <Route path="/refeicoes" element={<RefeicoesPage />} />
       </Routes>
     </Router>
   );

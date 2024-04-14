@@ -27,7 +27,7 @@ function HeaderAddRefComponent() {
 
   return (
     <main className="container-header-add">
-      <img className="seta-header" src={Seta} alt="" />
+      <a href="/home"><img className="seta-header" src={Seta} alt="" /></a>
       <h1 className="titulo-header-add">Adicionar Refeição</h1>
       <button className="btn-header"><div class="menu-burger" onClick={updateMenu}>
         <div class="bar"></div>

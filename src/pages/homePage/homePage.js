@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./homePage.css";
 //component
 import HeaderComponent from "../../components/headerComponent/headerComponent";
+import NavBarComponent from "../../components/navBarComponent/navBarComponent";
 
 //carrossel
 import Slider from "react-slick";
@@ -80,6 +81,7 @@ function Home() {
       <div className="banner-content">
         <img className="banner1" src={Banner} alt="imagem banner" />
       </div>
+      <NavBarComponent/>
     </main>
   );
 }
