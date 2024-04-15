@@ -1,77 +1,93 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import "./addRefPage.css";
 import HeaderAddRefComponent from "../../components/headerAddRefComponent/headerAddRefComponent";
 import Camera from "../../assets/img/camera.png";
+import axios from 'axios';
 
 function AddRefPage() {
- const [capturedImage, setCapturedImage] = useState(null);
- const [showCaptureButtons, setShowCaptureButtons] = useState(false); // Estado para controlar a visibilidade dos botões
- const videoRef = useRef(null);
- const canvasRef = useRef(null);
+  const [mealName, setMealName] = useState("");
+  const [mealDescription, setMealDescription] = useState("");
+  const [photo, setPhoto] = useState(null);
 
- const captureImage = () => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext('2d');
-    context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-    const imageDataUrl = canvas.toDataURL('image/png');
-    setCapturedImage(imageDataUrl);
- };
+  const handleAddPhotoClick = () => {
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+          const video = document.createElement('video');
+          video.srcObject = stream;
+          video.play();
 
- const saveImage = () => {
-    const link = document.createElement('a');
-    link.href = capturedImage;
-    link.download = 'captured_image.png';
-    link.click();
- };
+          const canvas = document.createElement('canvas');
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
 
- const startCamera = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        setShowCaptureButtons(true); // Habilitar os botões de captura após iniciar a câmera
-      }
-    } catch (error) {
-      console.error("Error accessing camera:", error);
+          const context = canvas.getContext('2d');
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+          
+          const dataUrl = canvas.toDataURL('image/jpeg');
+
+          setPhoto(dataUrl);
+
+          stream.getTracks().forEach(track => track.stop());
+        })
+        .catch(function(error) {
+          console.error('Erro ao acessar a câmera: ', error);
+        });
+    } else {
+      console.error('Navegador não suporta acesso à câmera.');
     }
- };
+  };
 
- return (
+  const handleSaveClick = () => {
+    // Enviar os dados da refeição para o backend usando o Axios
+    axios.post('http://localhost:5000/api/post', {
+      userId: 1, // Substitua pelo ID do usuário
+      title: mealName,
+      description: mealDescription,
+      pic: photo,
+    })
+    .then(response => {
+      console.log("Refeição salva com sucesso!");
+      // Limpar os campos após o salvamento
+      setMealName("");
+      setMealDescription("");
+      setPhoto(null);
+    })
+    .catch(error => {
+      console.error("Erro ao salvar a refeição:", error);
+    });
+  };
+
+  return (
     <main className="form-add">
       <HeaderAddRefComponent />
       <label className="pergunta">Qual a refeição?</label>
       <input
         className="input-nome"
         placeholder="Digite um nome para a sua refeição"
+        value={mealName}
+        onChange={(e) => setMealName(e.target.value)}
       />
       <label className="pergunta">Sobre a refeição:</label>
       <textarea
         className="input-descricao"
         placeholder="Descreva a sua refeição"
+        value={mealDescription}
+        onChange={(e) => setMealDescription(e.target.value)}
       ></textarea>
-      <button className="btn-add" onClick={startCamera}>
+      {photo && (
+        <img src={photo} alt="Refeição" className="photo-preview" />
+      )}
+      <button className="btn-add" onClick={handleAddPhotoClick}>
         <img src={Camera} alt="Camera"></img>
         <span>Adicionar foto da Refeição</span>
       </button>
-      <video ref={videoRef} autoPlay></video>
-      <canvas ref={canvasRef} style={{ display: 'none' }}></canvas>
-      {capturedImage && <img src={capturedImage} alt="Captured" />}
-      {/* Renderizar os botões somente se showCaptureButtons for true */}
-      {showCaptureButtons && (
-        <div>
-          <button className="btn-capturar" onClick={captureImage}>
-            Capturar Foto
-          </button>
-          <button className="btn-salvar" onClick={saveImage}>
-            Salvar Foto
-          </button>
-        </div>
-      )}
-      <button className="btn-cancelar">
-        Cancelar
+      
+      <button className="btn-salvar" onClick={handleSaveClick}>
+        Salvar
       </button>
     </main>
- );
+  );
 }
 
 export default AddRefPage;

@@ -60,35 +60,6 @@
     cursor: pointer;
 }
 
-.btn-capturar {
-    background-color: #5FA604;
-    color: white;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .6rem;
-    border-radius: 8px;
-    width: 90%;
-    margin-top: 6rem;
-    margin-bottom: 2rem;
-    cursor: pointer;
-}
-
-.btn-cancelar {
-    background-color: #5FA604;
-    color: white;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: .6rem;
-    border-radius: 8px;
-    width: 90%;
-    margin-top: 6rem;
-    margin-bottom: 2rem;
-    cursor: pointer;
-}
 
 #videoElement {
     transform: rotateY(180deg);

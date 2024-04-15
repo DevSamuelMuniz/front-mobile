@@ -42,15 +42,16 @@
 .menu {
   /* Estilo */
   width: 60%;
-  height: 90vh;
+  height: 100vh;
+
   background-color: #f28705f2;
   display: flex;
   justify-content: center;
   
   /* Posição */
   position: absolute;
-  top: 5.96rem;
-  right: 0;
+  top: 0;
+  left: 0;
   z-index: 1;
 }
 
@@ -60,7 +61,7 @@
   align-items: center;
   justify-content: end;
   gap: 1rem;
-  margin-bottom: 6rem;
+  margin-bottom: 11rem;
   width: 85%;
 }
 

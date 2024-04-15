@@ -34,3 +34,15 @@
   height: auto;
   border-radius: 0.6rem;
 }
+
+.ctn-grafico{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+.grafico-home{
+  width: 12rem;
+}

@@ -11,6 +11,7 @@ function RegistroPage() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [errorMessage, setErrorMessage] = useState(""); // Estado para armazenar a mensagem de erro
 
   const handleRegistro = async (e) => {
     e.preventDefault();
@@ -26,9 +27,13 @@ function RegistroPage() {
       registrado(); // Redirecionar apenas se o registro for bem-sucedido
     } catch (error) {
       console.error("Erro ao registrar usuário:", error);
+      if (error.response.status === 400) {
+        setErrorMessage("Email já cadastrado");
+      } else {
+        setErrorMessage("Erro ao registrar usuário. Tente novamente mais tarde.");
+      }
     }
   };
-  
 
   function registrado(){
     window.location.href = '/login'
@@ -41,6 +46,7 @@ function RegistroPage() {
       </div>
 
       <h1 className="tituloRegistro">Crie a sua conta</h1>
+      {errorMessage && <p className="errorMessage">{errorMessage}</p>} {/* Exibir a mensagem de erro se houver */}
       <div className="ctn-form">
         <form className="formRegistro" onSubmit={handleRegistro}>
           <label className="labelRegistro" htmlFor="nome">

@@ -59,7 +59,7 @@ function HeaderComponent() {
           <a className="item-slide" href="/">
             <img src={PoliticasIcon} alt="nossas políticas"></img> <p>Políticas de Privacidade</p>
           </a>
-          <button className="item-slide" onClick={handleLogout}>Deslogar da conta</button>
+          <button className="deslogar" onClick={handleLogout}>Deslogar da conta</button>
         </div>
       </div>
     </main>
