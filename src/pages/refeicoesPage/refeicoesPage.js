@@ -8,7 +8,7 @@ import "./refeicoesPage.css";
 import HeaderComponent from "../../components/headerComponent/headerComponent";
 import NavBarComponent from "../../components/navBarComponent/navBarComponent";
 
-function Refeicoes() {
+function RefeicoesPage() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -25,11 +25,11 @@ function Refeicoes() {
   }, []);
 
   return (
-    <main>
+    <main className="content-refeicoes">
       <HeaderComponent />
-      <h1>Suas refeições</h1>
+      <h1 className="title-ref">Suas refeições</h1>
 
-      <div>
+      <div className="ctn-refeicoes">
         {posts && posts.map((post) => (
           <CardRefeicoesComponent key={post.postId} post={post} />
         ))}
@@ -40,4 +40,4 @@ function Refeicoes() {
   );
 }
 
-export default Refeicoes;
+export default RefeicoesPage;

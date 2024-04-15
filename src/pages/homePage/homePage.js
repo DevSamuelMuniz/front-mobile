@@ -36,8 +36,9 @@ function Home() {
     <main className="content-header">
       <HeaderComponent />
       <div className="ctn-grafico">
-        <h1>Suas metas</h1>
+        <h1 className="saiba-mais">Suas metas</h1>
         <a href="/progresso"><img className="grafico-home" src={Grafico} alt="grafico"></img></a>
+        <p className="saiba-mais">Clique e saiba mais</p>
       </div>
       <div className="receitas">
         <h1>Receitas</h1>

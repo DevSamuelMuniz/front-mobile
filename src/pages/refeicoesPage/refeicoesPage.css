@@ -1,0 +1,11 @@
+.ctn-refeicoes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title-ref{
+    color: #f27405;
+    margin: 2rem 0 0 1rem;
+}
