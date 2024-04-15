@@ -1,10 +1,9 @@
-import Chart from "chart.js/auto"; //não apague
-import React, { useState } from "react";
+import Chart from "chart.js/auto";
+import React, { useState, useEffect } from "react";
 import { Doughnut } from "react-chartjs-2";
 import HeaderComponent from "../../components/headerComponent/headerComponent";
 import NavBarComponent from "../../components/navBarComponent/navBarComponent";
-import axios from "axios"; // Importe o axios para fazer requisições HTTP
-
+import axios from "axios";
 
 //css
 import "./progressPage.css";
@@ -14,8 +13,22 @@ function ProgressPage() {
   const [goalName, setGoalName] = useState("");
   const [goalAmount, setGoalAmount] = useState("");
   const [totalConsumed, setTotalConsumed] = useState(0);
+  const [userId, setUserId] = useState(1); // Supondo que você tenha o ID do usuário armazenado após o login
 
-  const userId = 1; // Supondo que você tenha o ID do usuário armazenado após o login
+
+  useEffect(() => {
+    // Função para buscar os objetivos do usuário do backend Flask
+    const fetchGoals = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/users/${userId}/goals`);
+        setGoals(response.data.goals);
+      } catch (error) {
+        console.error('Error fetching goals:', error);
+      }
+    };
+
+    fetchGoals(); // Chame a função ao montar o componente
+  }, [userId]); // O segundo parâmetro do useEffect vazio indica que esta função só será chamada uma vez, quando o componente for montado
 
   const handleChange = (event) => {
     setGoalName(event.target.value);
@@ -33,7 +46,6 @@ function ProgressPage() {
         consumed: 0,
       };
 
-      // Enviar os dados para o backend Flask, incluindo o ID do usuário
       axios.post("http://localhost:5000/api/add_goal", {
         userId: userId,
         metaName: goalName,
@@ -70,7 +82,6 @@ function ProgressPage() {
     setTotalConsumed(total);
   };
 
-  // Preparar os dados para o gráfico
   const data = {
     labels: goals.map((goal) => goal.name),
     datasets: [
@@ -80,7 +91,6 @@ function ProgressPage() {
           "rgba(54, 162, 235, 0.6)",
           "rgba(255, 99, 132, 0.6)",
           "rgba(75, 192, 192, 0.6)",
-          // Adicione mais cores conforme necessário
         ],
         borderWidth: 1,
       },
