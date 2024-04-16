@@ -20,7 +20,7 @@ function ProgressPage() {
     // Função para buscar os objetivos do usuário do backend Flask
     const fetchGoals = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/${userId}/goals`);
+        const response = await axios.get(`http://localhost:5000/api/add_goal`, {headers:{"token":localStorage.getItem("token")}});
         setGoals(response.data.goals);
       } catch (error) {
         console.error('Error fetching goals:', error);

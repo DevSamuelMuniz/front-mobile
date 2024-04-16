@@ -27,12 +27,11 @@ function HeaderComponent() {
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:5000/api/logout"); // Rota para fazer logout
-      // Após o logout, você pode redirecionar o usuário para a página de login ou realizar outras ações necessárias
-      window.location.href = '/login'; // Redireciona para a página de login
+      await axios.post("http://localhost:5000/api/logout"); 
+      localStorage.removeItem("token");
+      window.location.href = '/login';
     } catch (error) {
       console.error("Erro ao fazer logout:", error);
-      // Trate o erro, se necessário
     }
   };
 

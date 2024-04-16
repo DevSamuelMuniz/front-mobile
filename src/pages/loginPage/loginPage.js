@@ -22,6 +22,7 @@ function LoginPage() {
 
       console.log(response.data); // Aqui você pode tratar a resposta, por exemplo, redirecionar para "/home" se o login for bem-sucedido
       if (response.data.success) {
+        localStorage.setItem("token", response.data.token);
         window.location.href = '/home'; // Redireciona para "/home" se o login for bem-sucedido
       } else {
         console.error("Credenciais inválidas");
