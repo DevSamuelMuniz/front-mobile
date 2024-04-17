@@ -1,0 +1,52 @@
+.banner1 {
+  width: 100%;
+  height: auto;
+  border-radius: 0.6rem;
+}
+
+.content-header {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.foto-receita {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.foto-receita img {
+  width: 30%;
+  height: auto;
+  border-radius: 0.6rem;
+}
+
+.recipe-info {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-direction: column;
+}
+
+.recipe-info img {
+  width: 40%;
+  height: auto;
+  border-radius: 0.6rem;
+}
+
+.ctn-grafico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.grafico-home {
+  width: 12rem;
+  filter: drop-shadow(5px 0 8px black);
+}
+
+.saiba-mais{
+  color: #f27405;
+}
