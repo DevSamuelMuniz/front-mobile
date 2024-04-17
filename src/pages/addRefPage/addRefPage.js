@@ -1,14 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
 import "./addRefPage.css";
 import HeaderAddRefComponent from "../../components/headerAddRefComponent/headerAddRefComponent";
 import Camera from "../../assets/img/camera.png";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 function AddRefPage() {
   const [mealName, setMealName] = useState("");
   const [mealDescription, setMealDescription] = useState("");
   const [photo, setPhoto] = useState(null);
-  const userId = 1;
+  const [isRedirect, setIsRedirect] = useState(false);
+  const navigate = useNavigate();
+
 
   const handleAddPhotoClick = () => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -40,25 +44,27 @@ function AddRefPage() {
   };
 
   const handleSaveClick = () => {
-    // Enviar os dados da refeição para o backend usando o Axios
     axios.post('http://localhost:5000/api/post', {
-      userId: localStorage.getItem("token"), 
-      title: mealName,
-      description: mealDescription,
-      pic: photo,
+       userId: localStorage.getItem("token"), 
+       title: mealName,
+       description: mealDescription,
+       pic: photo,
     })
     .then(response => {
-      console.log("Refeição salva com sucesso!");
-      // Limpar os campos após o salvamento
-      setMealName("");
-      setMealDescription("");
-      setPhoto(null);
+       console.log("Refeição salva com sucesso!");
+       setMealName("");
+       setMealDescription("");
+       setPhoto(null);
+       // Check if the response indicates success
+       if (response.data.message === 'Post saved successfully') {
+         // Redirect to /refeicoes
+         navigate('/refeicoes'); // Corrected navigation
+       }
     })
     .catch(error => {
-      console.error("Erro ao salvar a refeição:", error);
+       console.error("Erro ao salvar a refeição:", error);
     });
-  };
-
+   };
   return (
     <main className="form-add">
       <HeaderAddRefComponent />

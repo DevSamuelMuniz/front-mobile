@@ -13,22 +13,22 @@ function ProgressPage() {
   const [goalName, setGoalName] = useState("");
   const [goalAmount, setGoalAmount] = useState("");
   const [totalConsumed, setTotalConsumed] = useState(0);
-  const [userId, setUserId] = useState(1); // Supondo que você tenha o ID do usuário armazenado após o login
-
+  const [userId, setUserId] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
-    // Função para buscar os objetivos do usuário do backend Flask
     const fetchGoals = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/add_goal`, {headers:{"token":localStorage.getItem("token")}});
-        setGoals(response.data.goals);
+        const response = await axios.get("http://localhost:5000/api/add_goal", {
+          headers: { token: localStorage.getItem("token") },
+        });
+        setGoals(response.data);
       } catch (error) {
-        console.error('Error fetching goals:', error);
+        console.error("Error fetching goals:", error);
       }
     };
 
-    fetchGoals(); // Chame a função ao montar o componente
-  }, [userId]); // O segundo parâmetro do useEffect vazio indica que esta função só será chamada uma vez, quando o componente for montado
+    fetchGoals();
+  }, []);
 
   const handleChange = (event) => {
     setGoalName(event.target.value);
@@ -43,50 +43,62 @@ function ProgressPage() {
       const newGoal = {
         name: goalName,
         target: Number(goalAmount),
-        consumed: 0,
+        metaAtual: 0,
       };
 
-      axios.post("http://localhost:5000/api/add_goal", {
-        userId: userId,
-        metaName: goalName,
-        metaQuantity: goalAmount,
-      })
-      .then(response => {
-        console.log(response.data);
-        setGoals([...goals, newGoal]);
-        setGoalName("");
-        setGoalAmount("");
-      })
-      .catch(error => {
-        console.error('Error adding goal:', error);
-      });
+      axios
+        .post("http://localhost:5000/api/add_goal", {
+          userId: userId,
+          metaName: goalName,
+          metaQuantity: goalAmount,
+        })
+        .then((response) => {
+          console.log(response.data);
+          setGoals([...goals, newGoal]);
+          setGoalName("");
+          setGoalAmount("");
+        })
+        .catch((error) => {
+          console.error("Error adding goal:", error);
+        });
     }
+  };
+
+  const updateMeta = (metaId, valorMeta) => {
+    axios.put(
+      "http://localhost:5000/api/add_goal",
+      {
+        metaAtual: valorMeta,
+      },
+      { headers: { token: localStorage.getItem("token"), metaId: metaId} }
+    );
   };
 
   const increaseConsumption = (index) => {
     const updatedGoals = [...goals];
-    updatedGoals[index].consumed += 1;
+    updatedGoals[index].metaAtual += 1;
     setGoals(updatedGoals);
     calculateTotalConsumed();
+    updateMeta(updatedGoals[index].id , updatedGoals[index].metaAtual);
   };
 
   const decreaseConsumption = (index) => {
     const updatedGoals = [...goals];
-    updatedGoals[index].consumed -= 1;
+    updatedGoals[index].metaAtual -= 1;
     setGoals(updatedGoals);
     calculateTotalConsumed();
   };
 
   const calculateTotalConsumed = () => {
-    const total = goals.reduce((acc, curr) => acc + curr.consumed, 0);
+    const total = goals.reduce((acc, curr) => acc + curr.metaAtual, 0);
     setTotalConsumed(total);
   };
 
   const data = {
-    labels: goals.map((goal) => goal.name),
+    labels: goals.map((goal) => goal.nome),
     datasets: [
       {
-        data: goals.map((goal) => goal.consumed),
+        data: goals.map((goal) => goal.metaAtual),
         backgroundColor: [
           "rgba(54, 162, 235, 0.6)",
           "rgba(255, 99, 132, 0.6)",
@@ -138,7 +150,7 @@ function ProgressPage() {
         {goals.map((goal, index) => (
           <div className="adicionar-progress" key={index}>
             <p>
-              {goal.name}: {goal.consumed} / {goal.target}
+              {goal.nome}: {goal.quantidade} / {goal.metaAtual}
             </p>
             <div className="adic-dim">
               <button

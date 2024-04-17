@@ -1,5 +1,6 @@
 import React from "react";
 import "./cardRefeicoesComponent.css";
+import Comida from "../../assets/img/comida.jpg";
 
 function CardRefeicoesComponent({ post }) {
   const { title, description, pic } = post;
@@ -7,7 +8,7 @@ function CardRefeicoesComponent({ post }) {
   return (
     <main className="content-cardRef">
       <div className="ctn-img">
-        <img className="img-card" src={pic} alt={title} />
+        <img className="img-card" src={Comida} alt={title} />
       </div>
 
       <div className="ctn-title">
