@@ -55,7 +55,7 @@
   padding: 0.6rem;
   border-radius: 8px;
   width: 90%;
-  margin-top: 6rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   cursor: pointer;
 }
@@ -68,4 +68,8 @@
   -moz-transform: rotateY(
     180deg
   ); /* Para compatibilidade com navegadores mais antigos */
+}
+
+.photo-preview{
+  width: 70%;
 }

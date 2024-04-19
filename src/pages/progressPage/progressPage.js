@@ -77,7 +77,6 @@ function ProgressPage() {
   const increaseConsumption = (index) => {
     const updatedGoals = [...goals];
     updatedGoals[index].metaAtual += 1;
-    setGoals(updatedGoals);
     calculateTotalConsumed();
     updateMeta(updatedGoals[index].id, updatedGoals[index].metaAtual);
   };
@@ -85,7 +84,6 @@ function ProgressPage() {
   const decreaseConsumption = (index) => {
     const updatedGoals = [...goals];
     updatedGoals[index].metaAtual -= 1;
-    setGoals(updatedGoals);
     calculateTotalConsumed();
   };
 

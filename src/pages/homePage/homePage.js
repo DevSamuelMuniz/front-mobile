@@ -19,7 +19,7 @@ function Home() {
   const fetchVegetarianRecipes = async () => {
     try {
       const response = await axios.get(
-        "https://api.spoonacular.com/recipes/random?number=2&tags=vegetarian&apiKey=2853166db4634c0391e3f39905741359"
+        "https://api.spoonacular.com/recipes/random?number=2&tags=vegetarian&apiKey=287205b89b164bdea08bae0661470da9"
       );
       setVegetarianRecipes(response.data.recipes);
     } catch (error) {
@@ -30,7 +30,7 @@ function Home() {
   const fetchHealthyRecipes = async () => {
     try {
       const response = await axios.get(
-        "https://api.spoonacular.com/recipes/random?number=2&maxFat=1&minProtein=20&apiKey=2853166db4634c0391e3f39905741359"
+        "https://api.spoonacular.com/recipes/random?number=2&maxFat=1&minProtein=20&apiKey=287205b89b164bdea08bae0661470da9"
       );
       setHealthyRecipes(response.data.recipes);
     } catch (error) {

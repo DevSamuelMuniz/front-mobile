@@ -40,18 +40,14 @@
 }
 
 .menu {
-  /* Estilo */
   width: 60%;
-  height: 100vh;
-
+  height: 83vh;
   background-color: #f28705f2;
   display: flex;
   justify-content: center;
-
-  /* Posição */
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 5rem;
+  right: 0;
   z-index: 1;
 }
 

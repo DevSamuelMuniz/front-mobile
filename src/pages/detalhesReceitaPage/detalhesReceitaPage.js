@@ -14,7 +14,7 @@ function DetalhesReceitasPage() {
     const fetchRecipeDetails = async () => {
       try {
         const response = await axios.get(
-          `https://api.spoonacular.com/recipes/${id}/information?apiKey=2853166db4634c0391e3f39905741359`
+          `https://api.spoonacular.com/recipes/${id}/information?apiKey=287205b89b164bdea08bae0661470da9`
         );
         setRecipe(response.data);
       } catch (error) {
