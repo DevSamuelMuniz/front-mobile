@@ -23,7 +23,7 @@ function LoginPage() {
       console.log(response.data); // Aqui você pode tratar a resposta, por exemplo, redirecionar para "/home" se o login for bem-sucedido
       if (response.data.success) {
         localStorage.setItem("token", response.data.token);
-        window.location.href = '/home'; // Redireciona para "/home" se o login for bem-sucedido
+        window.location.href = "/home"; // Redireciona para "/home" se o login for bem-sucedido
       } else {
         console.error("Credenciais inválidas");
         // Aqui você pode exibir uma mensagem de erro para o usuário
@@ -71,13 +71,17 @@ function LoginPage() {
             required
           />
 
-          <button className="btnLogin" type="submit">Entrar</button>
+          <button className="btnLogin" type="submit">
+            Entrar
+          </button>
         </form>
       </div>
 
       <div className="ctn-cadastro">
         <p className="cadastroLogin">Não tem uma conta?</p>
-        <a href="/cadastro" className="cadastroLoginLink">Criar uma conta agora</a>
+        <a href="/cadastro" className="cadastroLoginLink">
+          Criar uma conta agora
+        </a>
       </div>
     </main>
   );

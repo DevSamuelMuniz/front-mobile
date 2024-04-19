@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-//css                
+//css
 import "./registroPage.css";
 
 //logo com nome
@@ -15,14 +15,14 @@ function RegistroPage() {
 
   const handleRegistro = async (e) => {
     e.preventDefault();
-  
+
     try {
       const response = await axios.post("http://localhost:5000/api/register", {
         name: nome,
         email: email,
         password: senha,
       });
-  
+
       console.log(response.data); // Aqui você pode tratar a resposta, por exemplo, exibir uma mensagem de sucesso
       registrado(); // Redirecionar apenas se o registro for bem-sucedido
     } catch (error) {
@@ -30,13 +30,15 @@ function RegistroPage() {
       if (error.response.status === 400) {
         setErrorMessage("Email já cadastrado");
       } else {
-        setErrorMessage("Erro ao registrar usuário. Tente novamente mais tarde.");
+        setErrorMessage(
+          "Erro ao registrar usuário. Tente novamente mais tarde."
+        );
       }
     }
   };
 
-  function registrado(){
-    window.location.href = '/login'
+  function registrado() {
+    window.location.href = "/login";
   }
 
   return (
@@ -44,9 +46,9 @@ function RegistroPage() {
       <div>
         <img className="logoRegistro" src={LogoNome} alt="" />
       </div>
-
       <h1 className="tituloRegistro">Crie a sua conta</h1>
-      {errorMessage && <p className="errorMessage">{errorMessage}</p>} {/* Exibir a mensagem de erro se houver */}
+      {errorMessage && <p className="errorMessage">{errorMessage}</p>}{" "}
+      {/* Exibir a mensagem de erro se houver */}
       <div className="ctn-form">
         <form className="formRegistro" onSubmit={handleRegistro}>
           <label className="labelRegistro" htmlFor="nome">

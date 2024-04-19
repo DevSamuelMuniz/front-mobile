@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import axios from "axios";
 
 //splashScreen
@@ -43,7 +48,15 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={loading ? <SplashScreenComponent /> : loggedIn ? <Navigate to="/home" /> : <Navigate to="/login" />}
+          element={
+            loading ? (
+              <SplashScreenComponent />
+            ) : loggedIn ? (
+              <Navigate to="/home" />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/home" element={<HomePage />} />

@@ -1,12 +1,12 @@
-.ctn-refeicoes{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 7rem;
+.ctn-refeicoes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 7rem;
 }
 
-.title-ref{
-    color: #f27405;
-    margin: 2rem 0 0 1rem;
+.title-ref {
+  color: #f27405;
+  margin: 2rem 0 0 1rem;
 }

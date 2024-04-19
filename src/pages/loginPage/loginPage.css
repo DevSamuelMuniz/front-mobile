@@ -1,5 +1,5 @@
 .content-loginPage {
-  background-color: #F28705;
+  background-color: #f28705;
 
   display: flex;
   justify-content: center;
@@ -53,8 +53,8 @@
 }
 
 .btnLogin {
-  background-color: #5FA604;
-  border: 1px solid #5FA604;
+  background-color: #5fa604;
+  border: 1px solid #5fa604;
   font-size: 1.4rem;
   padding: 0.4rem 1.6rem;
   color: white;
@@ -69,7 +69,7 @@
 
 .btnLogin:hover {
   background-color: white;
-  color: #5FA604;
+  color: #5fa604;
 }
 
 .cadastroLogin {
@@ -82,7 +82,6 @@
   font-size: 1.2rem;
   color: #235802;
   text-decoration: none;
-  
 }
 
 .cadastroLoginLink:hover {

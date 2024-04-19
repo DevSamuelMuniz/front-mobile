@@ -2,6 +2,7 @@
   width: 100%;
   height: auto;
   border-radius: 0.6rem;
+  margin-bottom: 7rem;
 }
 
 .content-header {
@@ -47,6 +48,6 @@
   filter: drop-shadow(5px 0 8px black);
 }
 
-.saiba-mais{
+.saiba-mais {
   color: #f27405;
 }

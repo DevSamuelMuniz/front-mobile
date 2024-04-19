@@ -70,7 +70,7 @@ function ProgressPage() {
       {
         metaAtual: valorMeta,
       },
-      { headers: { token: localStorage.getItem("token"), metaId: metaId} }
+      { headers: { token: localStorage.getItem("token"), metaId: metaId } }
     );
   };
 
@@ -79,7 +79,7 @@ function ProgressPage() {
     updatedGoals[index].metaAtual += 1;
     setGoals(updatedGoals);
     calculateTotalConsumed();
-    updateMeta(updatedGoals[index].id , updatedGoals[index].metaAtual);
+    updateMeta(updatedGoals[index].id, updatedGoals[index].metaAtual);
   };
 
   const decreaseConsumption = (index) => {

@@ -43,6 +43,6 @@ function recipeCarrosselComponent() {
       </Slider>
     </main>
   );
-};
+}
 
 export default recipeCarrosselComponent;

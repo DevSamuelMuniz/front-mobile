@@ -5,6 +5,7 @@ import HeaderComponent from "../../components/headerComponent/headerComponent";
 import NavBarComponent from "../../components/navBarComponent/navBarComponent";
 import Banner from "../../assets/img/banner.png";
 import Grafico from "../../assets/home/grafico.png";
+import RecipeCarrosselComponent from "../../components/recipeCarrosselComponent/recipeCarrosselComponent";
 
 function Home() {
   return (
@@ -18,7 +19,13 @@ function Home() {
         <p className="saiba-mais">Clique e saiba mais</p>
       </div>
       <div className="receitas">
-        <h1>Receitas</h1>
+        <h1 className="title-ref">Receitas</h1>
+        <br></br>
+        <RecipeCarrosselComponent />
+        <br></br> <br></br> <br></br>
+        <RecipeCarrosselComponent />
+        <br></br>
+        <br></br>
         <div className="foto-receita"></div>
       </div>
       <div className="banner-content">
