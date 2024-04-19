@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./addRefPage.css";
 import HeaderAddRefComponent from "../../components/headerAddRefComponent/headerAddRefComponent";
 import Camera from "../../assets/img/camera.png";
@@ -9,7 +9,6 @@ function AddRefPage() {
   const [mealName, setMealName] = useState("");
   const [mealDescription, setMealDescription] = useState("");
   const [photo, setPhoto] = useState(null);
-  const [isRedirect, setIsRedirect] = useState(false);
   const navigate = useNavigate();
 
   const handleAddPhotoClick = () => {
@@ -19,20 +18,37 @@ function AddRefPage() {
         .then(function (stream) {
           const video = document.createElement("video");
           video.srcObject = stream;
-          video.play();
-
-          const canvas = document.createElement("canvas");
-          canvas.width = video.videoWidth;
-          canvas.height = video.videoHeight;
-
-          const context = canvas.getContext("2d");
-          context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-          const dataUrl = canvas.toDataURL("image/jpeg");
-
-          setPhoto(dataUrl);
-
-          stream.getTracks().forEach((track) => track.stop());
+          video.onloadedmetadata = function() {
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d");
+  
+            video.addEventListener('play', function() {
+              const captureFrame = () => {
+                if (video.paused || video.ended) {
+                  return;
+                }
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                const dataUrl = canvas.toDataURL("image/jpeg");
+  
+                setPhoto(dataUrl);
+  
+                // Limpa os recursos
+                stream.getTracks().forEach((track) => track.stop());
+                video.removeEventListener('play', captureFrame);
+              };
+              captureFrame();
+            });
+  
+            // Inicia a reprodução do vídeo quando estiver pronto
+            video.play();
+          };
+  
+          // Se houver um erro, registra no console
+          video.onerror = function(error) {
+            console.error("Erro ao reproduzir o vídeo: ", error);
+          };
         })
         .catch(function (error) {
           console.error("Erro ao acessar a câmera: ", error);
@@ -41,7 +57,7 @@ function AddRefPage() {
       console.error("Navegador não suporta acesso à câmera.");
     }
   };
-
+  
   const handleSaveClick = () => {
     axios
       .post("http://localhost:5000/api/post", {
@@ -65,6 +81,7 @@ function AddRefPage() {
         console.error("Erro ao salvar a refeição:", error);
       });
   };
+
   return (
     <main className="form-add">
       <HeaderAddRefComponent />
