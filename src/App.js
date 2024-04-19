@@ -17,6 +17,7 @@ import RegistroPage from "./pages/registroPage/registroPage";
 import ProgressPage from "./pages/progressPage/progressPage";
 import AddRefPage from "./pages/addRefPage/addRefPage";
 import RefeicoesPage from "./pages/refeicoesPage/refeicoesPage";
+import DetalhesReceitasPage from "./pages/detalhesReceitaPage/detalhesReceitaPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -27,11 +28,9 @@ function App() {
       setLoading(false);
     }, 2000);
 
-    // Verificar se o usuário está logado ao carregar a aplicação
     checkLoggedIn();
   }, []);
 
-  // Função para verificar se o usuário está logado
   const checkLoggedIn = async () => {
     try {
       const response = await axios.get("http://localhost:5000/api/users");
@@ -64,6 +63,7 @@ function App() {
         <Route path="/progresso" element={<ProgressPage />} />
         <Route path="/adicionar" element={<AddRefPage />} />
         <Route path="/refeicoes" element={<RefeicoesPage />} />
+        <Route path="/detalhes/:id" element={<DetalhesReceitasPage />} />
       </Routes>
     </Router>
   );

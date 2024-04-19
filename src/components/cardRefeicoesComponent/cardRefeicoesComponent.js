@@ -1,17 +1,14 @@
 import React from "react";
 import "./cardRefeicoesComponent.css";
+import Comida from "../../assets/img/comida.jpg";
 
 function CardRefeicoesComponent({ post }) {
   const { title, description, pic } = post;
 
-  // Constrói a URL da imagem usando os dados passados em pic
-  const imageUrl = `data:image/jpeg;base64,${pic}`;
-
   return (
     <main className="content-cardRef">
       <div className="ctn-img">
-        {/* Use imageUrl diretamente como src */}
-        <img className="img-card" src={imageUrl} alt={title} />
+        <img className="img-card" src={pic} alt={title} />
       </div>
 
       <div className="ctn-title">

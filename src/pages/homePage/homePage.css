@@ -51,3 +51,34 @@
 .saiba-mais {
   color: #f27405;
 }
+
+.recipe-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 90vh;
+
+}
+
+.recipe-item{
+  height: 12rem;
+  border: 2px solid #f27405;
+  border-radius: 1rem;
+  padding: 2rem .3rem;
+}
+
+.img-recipe {
+  width: 10rem;
+
+}
+
+.recipe-title {
+  font-size: 1rem;
+  color: #f27405;
+  text-align: center;
+}
+
+.link-recipe {
+  text-decoration: none;
+}

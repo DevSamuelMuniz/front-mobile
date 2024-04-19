@@ -1,0 +1,31 @@
+.content-detalhes{
+    padding-bottom: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    color: #a74e00;
+}
+
+.title-detalhes{
+    width: 100%;
+    text-align: center;
+    color: #f27405;
+    margin: 2rem 0;
+}
+
+.img-detalhes{
+    width: 70%;
+    border: 2px solid #f27405;
+    border-radius: 1rem;
+}
+
+.tempoPreparo-detalhes{
+    color: #a74e00;
+}
+
+.instrucoes{
+    width: 90%;
+}
