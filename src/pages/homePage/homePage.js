@@ -12,31 +12,39 @@ function Home() {
   const [healthyRecipes, setHealthyRecipes] = useState([]);
 
   useEffect(() => {
-    const fetchVegetarianRecipes = async () => {
-      try {
-        const response = await axios.get(
-          "https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian&apiKey=2853166db4634c0391e3f39905741359"
-        );
-        setVegetarianRecipes(response.data.recipes);
-      } catch (error) {
-        console.error("Erro ao buscar receitas vegetarianas:", error);
-      }
-    };
-
-    const fetchHealthyRecipes = async () => {
-      try {
-        const response = await axios.get(
-          "https://api.spoonacular.com/recipes/random?number=1&maxFat=1&minProtein=20&apiKey=2853166db4634c0391e3f39905741359"
-        );
-        setHealthyRecipes(response.data.recipes);
-      } catch (error) {
-        console.error("Erro ao buscar receitas saudáveis:", error);
-      }
-    };
-
     fetchVegetarianRecipes();
     fetchHealthyRecipes();
   }, []);
+
+  const fetchVegetarianRecipes = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.spoonacular.com/recipes/random?number=2&tags=vegetarian&apiKey=2853166db4634c0391e3f39905741359"
+      );
+      setVegetarianRecipes(response.data.recipes);
+    } catch (error) {
+      console.error("Erro ao buscar receitas vegetarianas:", error);
+    }
+  };
+
+  const fetchHealthyRecipes = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.spoonacular.com/recipes/random?number=2&maxFat=1&minProtein=20&apiKey=2853166db4634c0391e3f39905741359"
+      );
+      setHealthyRecipes(response.data.recipes);
+    } catch (error) {
+      console.error("Erro ao buscar receitas saudáveis:", error);
+    }
+  };
+
+  const handleUpdateVegetarianRecipes = () => {
+    fetchVegetarianRecipes();
+  };
+
+  const handleUpdateHealthyRecipes = () => {
+    fetchHealthyRecipes();
+  };
 
   return (
     <main className="content-header">
@@ -54,24 +62,42 @@ function Home() {
           {vegetarianRecipes.map((recipe) => (
             <div key={recipe.id} className="recipe-item">
               <Link className="link-recipe" to={`/detalhes/${recipe.id}`}>
-                <img className="img-recipe" src={recipe.image} alt={recipe.title} />
+                <img
+                  className="img-recipe"
+                  src={recipe.image}
+                  alt={recipe.title}
+                />
                 <h2 className="recipe-title">{recipe.title}</h2>
               </Link>
             </div>
           ))}
         </div>
+          <div className="btn-ctn">
+            <button className="btn-att"onClick={handleUpdateVegetarianRecipes}>
+              Atualizar receitas
+            </button>
+          </div>
 
         <h1 className="title-ref">Receitas Saudáveis</h1>
         <div className="recipe-list">
           {healthyRecipes.map((recipe) => (
             <div key={recipe.id} className="recipe-item">
               <Link className="link-recipe" to={`/detalhes/${recipe.id}`}>
-                <img className="img-recipe" src={recipe.image} alt={recipe.title} />
+                <img
+                  className="img-recipe"
+                  src={recipe.image}
+                  alt={recipe.title}
+                />
                 <h2 className="recipe-title">{recipe.title}</h2>
               </Link>
             </div>
           ))}
         </div>
+          <div className="btn-ctn">
+            <button className="btn-att" onClick={handleUpdateHealthyRecipes}>
+              Atualizar receitas
+            </button>
+          </div>
       </div>
       <div className="banner-content">
         <img className="banner1" src={Banner} alt="imagem banner" />
