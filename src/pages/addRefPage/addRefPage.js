@@ -81,6 +81,8 @@ function AddRefPage() {
       .catch((error) => {
         console.error("Erro ao salvar a refeição:", error);
       });
+
+      window.location.href ='/refeicoes'
   };
 
   return (
