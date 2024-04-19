@@ -33,9 +33,9 @@ function RefeicoesPage() {
 
       <div className="ctn-refeicoes">
         {posts &&
-          posts.map((post) => (
-            <CardRefeicoesComponent key={post.postId} post={post} />
-          ))}
+          posts.map((post) => {
+            return <CardRefeicoesComponent key={post.postId} post={post} />;
+          })}
       </div>
 
       <NavBarComponent />
