@@ -57,27 +57,6 @@ function Home() {
         <p className="saiba-mais">Clique e saiba mais</p>
       </div>
       <div className="receitas">
-        <h1 className="title-ref">Receitas Vegetarianas</h1>
-        <div className="recipe-list">
-          {vegetarianRecipes.map((recipe) => (
-            <div key={recipe.id} className="recipe-item">
-              <Link className="link-recipe" to={`/detalhes/${recipe.id}`}>
-                <img
-                  className="img-recipe"
-                  src={recipe.image}
-                  alt={recipe.title}
-                />
-                <h2 className="recipe-title">{recipe.title}</h2>
-              </Link>
-            </div>
-          ))}
-        </div>
-          <div className="btn-ctn">
-            <button className="btn-att"onClick={handleUpdateVegetarianRecipes}>
-              Atualizar receitas
-            </button>
-          </div>
-
         <h1 className="title-ref">Receitas Saudáveis</h1>
         <div className="recipe-list">
           {healthyRecipes.map((recipe) => (
@@ -93,11 +72,32 @@ function Home() {
             </div>
           ))}
         </div>
-          <div className="btn-ctn">
-            <button className="btn-att" onClick={handleUpdateHealthyRecipes}>
-              Atualizar receitas
-            </button>
-          </div>
+        <div className="btn-ctn">
+          <button className="btn-att" onClick={handleUpdateHealthyRecipes}>
+            Atualizar receitas
+          </button>
+        </div>
+
+        <h1 className="title-ref">Receitas Vegetarianas</h1>
+        <div className="recipe-list">
+          {vegetarianRecipes.map((recipe) => (
+            <div key={recipe.id} className="recipe-item">
+              <Link className="link-recipe" to={`/detalhes/${recipe.id}`}>
+                <img
+                  className="img-recipe"
+                  src={recipe.image}
+                  alt={recipe.title}
+                />
+                <h2 className="recipe-title">{recipe.title}</h2>
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div className="btn-ctn">
+          <button className="btn-att" onClick={handleUpdateVegetarianRecipes}>
+            Atualizar receitas
+          </button>
+        </div>
       </div>
       <div className="banner-content">
         <img className="banner1" src={Banner} alt="imagem banner" />
