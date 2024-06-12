@@ -12,7 +12,6 @@ function ProgressPage() {
   const [goalName, setGoalName] = useState("");
   const [goalAmount, setGoalAmount] = useState("");
   const [totalConsumed, setTotalConsumed] = useState(0);
-  const [userId, setUserId] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
     const fetchGoals = async () => {
@@ -47,7 +46,7 @@ function ProgressPage() {
 
       axios
         .post("http://localhost:5000/api/add_goal", {
-          userId: userId,
+          userId: localStorage.getItem("token"),
           metaName: goalName,
           metaQuantity: goalAmount,
         })
@@ -173,3 +172,4 @@ function ProgressPage() {
 }
 
 export default ProgressPage;
+

@@ -12,7 +12,6 @@ import PoliticasIcon from "../../assets/img/politicasIcon.png";
 function HeaderComponent() {
   const [menuClass, setMenuClass] = useState("menu hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
-  const [userId, setUserId] = useState(null); // State variable for user ID
 
   const updateMenu = () => {
     if (!isMenuClicked) {
@@ -27,7 +26,6 @@ function HeaderComponent() {
     try {
       await axios.post("http://localhost:5000/api/logout");
       localStorage.removeItem("token");
-      setUserId(null); // Clear the user ID on logout
       window.location.href = "/login";
     } catch (error) {
       console.error("Erro ao fazer logout:", error);
