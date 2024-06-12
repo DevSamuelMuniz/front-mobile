@@ -1,4 +1,6 @@
 {
-    "accessibility.signals.sounds.volume": 0,
-    "liveshare.accessibility.soundsEnabled": false
+    "liveshare.accessibility.soundsEnabled": false,
+    "accessibility.signalOptions": {
+        "volume": 0
+    }
 }
