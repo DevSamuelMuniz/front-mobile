@@ -3,7 +3,7 @@ import "./cardRefeicoesComponent.css";
 import Comida from "../../assets/img/comida.jpg";
 
 function CardRefeicoesComponent({ post }) {
-  const { title, description, pic } = post;
+  const { title, description } = post;
 
   return (
     <main className="content-cardRef">

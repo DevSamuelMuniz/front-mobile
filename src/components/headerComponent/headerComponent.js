@@ -10,16 +10,14 @@ import ModoIcon from "../../assets/img/modoIcon.png";
 import PoliticasIcon from "../../assets/img/politicasIcon.png";
 
 function HeaderComponent() {
-  const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
-  const [menu_class, setMenuClass] = useState("menu hidden");
+  const [menuClass, setMenuClass] = useState("menu hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
+  const [userId, setUserId] = useState(null); // State variable for user ID
 
   const updateMenu = () => {
     if (!isMenuClicked) {
-      setBurgerClass("burger-bar clicked");
       setMenuClass("menu visible");
     } else {
-      setBurgerClass("burger-bar unclicked");
       setMenuClass("menu hidden");
     }
     setIsMenuClicked(!isMenuClicked);
@@ -29,6 +27,7 @@ function HeaderComponent() {
     try {
       await axios.post("http://localhost:5000/api/logout");
       localStorage.removeItem("token");
+      setUserId(null); // Clear the user ID on logout
       window.location.href = "/login";
     } catch (error) {
       console.error("Erro ao fazer logout:", error);
@@ -42,24 +41,25 @@ function HeaderComponent() {
       </a>
       <h1 className="titulo-header">NutriLife</h1>
       <button className="btn-header">
-        <div class="menu-burger" onClick={updateMenu}>
-          <div class="bar"></div>
-          <div class="bar"></div>
-          <div class="bar"></div>
+        <div className="menu-burger" onClick={updateMenu}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
         </div>
       </button>
 
-      <div className={menu_class}>
+      <div className={menuClass}>
         <div className="itens">
           <a className="item-slide" href="/">
-            <img src={ConfigIcon} alt="botão de configurações"></img>{" "}
+            <img src={ConfigIcon} alt="botão de configurações"></img>
             <p>Configurações</p>
           </a>
           <a className="item-slide" href="/">
-            <img src={ModoIcon} alt="modo noite"></img> <p>Modo Escuro</p>
+            <img src={ModoIcon} alt="modo noite"></img>
+            <p>Modo Escuro</p>
           </a>
           <a className="item-slide" href="/">
-            <img src={PoliticasIcon} alt="nossas políticas"></img>{" "}
+            <img src={PoliticasIcon} alt="nossas políticas"></img>
             <p>Políticas de Privacidade</p>
           </a>
           <button className="deslogar" onClick={handleLogout}>
